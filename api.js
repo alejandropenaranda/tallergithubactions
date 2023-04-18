@@ -34,8 +34,5 @@ app.get('/division', (req, res) => {
   res.send(string)
 })
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
-
+app.listen(port)
 module.exports = app;
