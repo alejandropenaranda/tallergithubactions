@@ -3,6 +3,7 @@ const request = require('supertest');
 const sum = require('./sum');
 const resta = require('./resta');
 const multiplicacion = require('./multiplicacion');
+const division = require('./division');
 const app = require('./api');
 
 test('sums two numbers', () => {
@@ -15,6 +16,10 @@ test('subtract two numbers', () => {
 
 test('multiply two numbers', () => {
   expect(multiplicacion(1, 2)).toBe(2);
+});
+
+test('divide two numbers', () => {
+  expect(division(1, 2)).toBe(0.5);
 });
 
 
@@ -32,4 +37,9 @@ test("should respond an string", async () => {
 test("should respond an string", async () => {
   const response = await request(app).get("/multiplicacion").send()
   expect(response.text).toBe("la multiplicacion de 1 y 2 es de: 2");
+});
+
+test("should respond an string", async () => {
+  const response = await request(app).get("/division").send()
+  expect(response.text).toBe("la division de 1 y 2 es de: 0.5");
 });
